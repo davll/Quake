@@ -160,9 +160,6 @@ extern int		gl_stencilbits;
 // Multitexture
 extern	qboolean	mtexenabled;
 extern	qboolean	gl_mtexable;
-extern PFNGLMULTITEXCOORD2FARBPROC  GL_MTexCoord2fFunc;
-extern PFNGLACTIVETEXTUREARBPROC    GL_SelectTextureFunc;
-extern PFNGLCLIENTACTIVETEXTUREARBPROC	GL_ClientActiveTextureFunc;
 extern GLint		gl_max_texture_units; //ericw
 
 //johnfitz -- anisotropic filtering
@@ -172,64 +169,10 @@ extern	float		gl_max_anisotropy;
 extern	qboolean	gl_anisotropy_able;
 
 //ericw -- VBO
-extern PFNGLBINDBUFFERARBPROC  GL_BindBufferFunc;
-extern PFNGLBUFFERDATAARBPROC  GL_BufferDataFunc;
-extern PFNGLBUFFERSUBDATAARBPROC  GL_BufferSubDataFunc;
-extern PFNGLDELETEBUFFERSARBPROC  GL_DeleteBuffersFunc;
-extern PFNGLGENBUFFERSARBPROC  GL_GenBuffersFunc;
 extern	qboolean	gl_vbo_able;
 //ericw
 
 //ericw -- GLSL
-
-// SDL 1.2 has a bug where it doesn't provide these typedefs on OS X!
-typedef GLuint (APIENTRYP QS_PFNGLCREATESHADERPROC) (GLenum type);
-typedef void (APIENTRYP QS_PFNGLDELETESHADERPROC) (GLuint shader);
-typedef void (APIENTRYP QS_PFNGLDELETEPROGRAMPROC) (GLuint program);
-typedef void (APIENTRYP QS_PFNGLSHADERSOURCEPROC) (GLuint shader, GLsizei count, const GLchar *const*string, const GLint *length);
-typedef void (APIENTRYP QS_PFNGLCOMPILESHADERPROC) (GLuint shader);
-typedef void (APIENTRYP QS_PFNGLGETSHADERIVPROC) (GLuint shader, GLenum pname, GLint *params);
-typedef void (APIENTRYP QS_PFNGLGETSHADERINFOLOGPROC) (GLuint shader, GLsizei bufSize, GLsizei *length, GLchar *infoLog);
-typedef void (APIENTRYP QS_PFNGLGETPROGRAMIVPROC) (GLuint program, GLenum pname, GLint *params);
-typedef void (APIENTRYP QS_PFNGLGETPROGRAMINFOLOGPROC) (GLuint program, GLsizei bufSize, GLsizei *length, GLchar *infoLog);
-typedef GLuint (APIENTRYP QS_PFNGLCREATEPROGRAMPROC) (void);
-typedef void (APIENTRYP QS_PFNGLATTACHSHADERPROC) (GLuint program, GLuint shader);
-typedef void (APIENTRYP QS_PFNGLLINKPROGRAMPROC) (GLuint program);
-typedef void (APIENTRYP QS_PFNGLBINDATTRIBLOCATIONFUNC) (GLuint program, GLuint index, const GLchar *name);
-typedef void (APIENTRYP QS_PFNGLUSEPROGRAMPROC) (GLuint program);
-typedef GLint (APIENTRYP QS_PFNGLGETATTRIBLOCATIONPROC) (GLuint program, const GLchar *name);
-typedef void (APIENTRYP QS_PFNGLVERTEXATTRIBPOINTERPROC) (GLuint index, GLint size, GLenum type, GLboolean normalized, GLsizei stride, const void *pointer);
-typedef void (APIENTRYP QS_PFNGLENABLEVERTEXATTRIBARRAYPROC) (GLuint index);
-typedef void (APIENTRYP QS_PFNGLDISABLEVERTEXATTRIBARRAYPROC) (GLuint index);
-typedef GLint (APIENTRYP QS_PFNGLGETUNIFORMLOCATIONPROC) (GLuint program, const GLchar *name);
-typedef void (APIENTRYP QS_PFNGLUNIFORM1IPROC) (GLint location, GLint v0);
-typedef void (APIENTRYP QS_PFNGLUNIFORM1FPROC) (GLint location, GLfloat v0);
-typedef void (APIENTRYP QS_PFNGLUNIFORM3FPROC) (GLint location, GLfloat v0, GLfloat v1, GLfloat v2);
-typedef void (APIENTRYP QS_PFNGLUNIFORM4FPROC) (GLint location, GLfloat v0, GLfloat v1, GLfloat v2, GLfloat v3);
-
-extern QS_PFNGLCREATESHADERPROC GL_CreateShaderFunc;
-extern QS_PFNGLDELETESHADERPROC GL_DeleteShaderFunc;
-extern QS_PFNGLDELETEPROGRAMPROC GL_DeleteProgramFunc;
-extern QS_PFNGLSHADERSOURCEPROC GL_ShaderSourceFunc;
-extern QS_PFNGLCOMPILESHADERPROC GL_CompileShaderFunc;
-extern QS_PFNGLGETSHADERIVPROC GL_GetShaderivFunc;
-extern QS_PFNGLGETSHADERINFOLOGPROC GL_GetShaderInfoLogFunc;
-extern QS_PFNGLGETPROGRAMIVPROC GL_GetProgramivFunc;
-extern QS_PFNGLGETPROGRAMINFOLOGPROC GL_GetProgramInfoLogFunc;
-extern QS_PFNGLCREATEPROGRAMPROC GL_CreateProgramFunc;
-extern QS_PFNGLATTACHSHADERPROC GL_AttachShaderFunc;
-extern QS_PFNGLLINKPROGRAMPROC GL_LinkProgramFunc;
-extern QS_PFNGLBINDATTRIBLOCATIONFUNC GL_BindAttribLocationFunc;
-extern QS_PFNGLUSEPROGRAMPROC GL_UseProgramFunc;
-extern QS_PFNGLGETATTRIBLOCATIONPROC GL_GetAttribLocationFunc;
-extern QS_PFNGLVERTEXATTRIBPOINTERPROC GL_VertexAttribPointerFunc;
-extern QS_PFNGLENABLEVERTEXATTRIBARRAYPROC GL_EnableVertexAttribArrayFunc;
-extern QS_PFNGLDISABLEVERTEXATTRIBARRAYPROC GL_DisableVertexAttribArrayFunc;
-extern QS_PFNGLGETUNIFORMLOCATIONPROC GL_GetUniformLocationFunc;
-extern QS_PFNGLUNIFORM1IPROC GL_Uniform1iFunc;
-extern QS_PFNGLUNIFORM1FPROC GL_Uniform1fFunc;
-extern QS_PFNGLUNIFORM3FPROC GL_Uniform3fFunc;
-extern QS_PFNGLUNIFORM4FPROC GL_Uniform4fFunc;
 extern	qboolean	gl_glsl_able;
 extern	qboolean	gl_glsl_gamma_able;
 extern	qboolean	gl_glsl_alias_able;

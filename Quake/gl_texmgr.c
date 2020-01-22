@@ -1454,7 +1454,7 @@ void GL_SelectTexture (GLenum target)
 	if (target == currenttarget)
 		return;
 		
-	GL_SelectTextureFunc(target);
+	glActiveTexture(target);
 	currenttarget = target;
 }
 

@@ -223,8 +223,12 @@ typedef struct
 #include "server.h"
 
 #include "platform.h"
+
 #include <SDL2/SDL.h>
-#include <SDL2/SDL_opengl.h>
+//#include <SDL2/SDL_opengl.h>
+
+#include <GL/glew.h>
+
 #ifndef APIENTRY
 #define	APIENTRY
 #endif

@@ -10,7 +10,8 @@ add_compile_definitions(
 
 add_compile_options(
     -Wall
-    -Wno-trigraphs
+	-Wno-trigraphs
+	-Werror=implicit
 )
 
 set(src
@@ -112,4 +113,5 @@ target_link_libraries(quake
 	SDL2
 	OpenGL
 	png
+	GLEW
 )

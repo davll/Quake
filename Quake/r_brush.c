@@ -326,8 +326,8 @@ void R_DrawSequentialPoly (msurface_t *s)
 			v = s->polys->verts[0];
 			for (i=0 ; i<s->polys->numverts ; i++, v+= VERTEXSIZE)
 			{
-				GL_MTexCoord2fFunc (GL_TEXTURE0_ARB, v[3], v[4]);
-				GL_MTexCoord2fFunc (GL_TEXTURE1_ARB, v[5], v[6]);
+				glMultiTexCoord2f (GL_TEXTURE0_ARB, v[3], v[4]);
+				glMultiTexCoord2f (GL_TEXTURE1_ARB, v[5], v[6]);
 				glVertex3fv (v);
 			}
 			glEnd ();
@@ -401,8 +401,8 @@ void R_DrawSequentialPoly (msurface_t *s)
 			v = s->polys->verts[0];
 			for (i=0 ; i<s->polys->numverts ; i++, v+= VERTEXSIZE)
 			{
-				GL_MTexCoord2fFunc (GL_TEXTURE0_ARB, v[3], v[4]);
-				GL_MTexCoord2fFunc (GL_TEXTURE1_ARB, v[5], v[6]);
+				glMultiTexCoord2f (GL_TEXTURE0_ARB, v[3], v[4]);
+				glMultiTexCoord2f (GL_TEXTURE1_ARB, v[5], v[6]);
 				glVertex3fv (v);
 			}
 			glEnd ();
@@ -966,7 +966,7 @@ void GL_DeleteBModelVertexBuffer (void)
 	if (!(gl_vbo_able && gl_mtexable && gl_max_texture_units >= 3))
 		return;
 
-	GL_DeleteBuffersFunc (1, &gl_bmodel_vbo);
+	glDeleteBuffers (1, &gl_bmodel_vbo);
 	gl_bmodel_vbo = 0;
 
 	GL_ClearBufferBindings ();
@@ -991,8 +991,8 @@ void GL_BuildBModelVertexBuffer (void)
 		return;
 
 // ask GL for a name for our VBO
-	GL_DeleteBuffersFunc (1, &gl_bmodel_vbo);
-	GL_GenBuffersFunc (1, &gl_bmodel_vbo);
+	glDeleteBuffers (1, &gl_bmodel_vbo);
+	glGenBuffers (1, &gl_bmodel_vbo);
 	
 // count all verts in all models
 	numverts = 0;
@@ -1029,8 +1029,8 @@ void GL_BuildBModelVertexBuffer (void)
 	}
 
 // upload to GPU
-	GL_BindBufferFunc (GL_ARRAY_BUFFER, gl_bmodel_vbo);
-	GL_BufferDataFunc (GL_ARRAY_BUFFER, varray_bytes, varray, GL_STATIC_DRAW);
+	glBindBuffer (GL_ARRAY_BUFFER, gl_bmodel_vbo);
+	glBufferData (GL_ARRAY_BUFFER, varray_bytes, varray, GL_STATIC_DRAW);
 	free (varray);
 	
 // invalidate the cached bindings
