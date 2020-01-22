@@ -3,8 +3,6 @@ cmake_minimum_required(VERSION 3.16)
 project(Quake)
 
 add_compile_definitions(
-	NO_SDL_CONFIG
-	USE_SDL2
     USE_CODEC_WAVE
     USE_CODEC_MP3
 	USE_CODEC_VORBIS
