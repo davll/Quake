@@ -135,7 +135,7 @@ typedef struct glpoly_s
 	struct	glpoly_s	*next;
 	struct	glpoly_s	*chain;
 	int		numverts;
-	float	verts[4][VERTEXSIZE];	// variable sized (xyz s1t1 s2t2)
+	float	verts[][VERTEXSIZE];	// variable sized (xyz s1t1 s2t2)
 } glpoly_t;
 
 typedef struct msurface_s
@@ -371,7 +371,7 @@ typedef struct {
 	struct gltexture_s	*gltextures[MAX_SKINS][4]; //johnfitz
 	struct gltexture_s	*fbtextures[MAX_SKINS][4]; //johnfitz
 	int					texels[MAX_SKINS];	// only for player skins
-	maliasframedesc_t	frames[1];	// variable sized
+	maliasframedesc_t	frames[];	// variable sized
 } aliashdr_t;
 
 #define	MAXALIASVERTS	2000 //johnfitz -- was 1024

@@ -910,7 +910,7 @@ void Sky_DrawFace (int axis)
 	Sky_SetBoxVert(1.0,  -1.0, axis, verts[3]);
 
 	start = Hunk_LowMark ();
-	p = (glpoly_t *) Hunk_Alloc(sizeof(glpoly_t));
+	p = (glpoly_t *) Hunk_Alloc(sizeof(glpoly_t) + 4*VERTEXSIZE*sizeof(float));
 
 	VectorSubtract(verts[2],verts[3],vup);
 	VectorSubtract(verts[2],verts[1],vright);

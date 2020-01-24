@@ -1092,7 +1092,7 @@ void Mod_PolyForUnlitSurface (msurface_t *fa)
 	}
 
 	//create the poly
-	poly = (glpoly_t *) Hunk_Alloc (sizeof(glpoly_t) + (numverts-4) * VERTEXSIZE*sizeof(float));
+	poly = (glpoly_t *) Hunk_Alloc (sizeof(glpoly_t) + (numverts) * VERTEXSIZE*sizeof(float));
 	poly->next = NULL;
 	fa->polys = poly;
 	poly->numverts = numverts;
